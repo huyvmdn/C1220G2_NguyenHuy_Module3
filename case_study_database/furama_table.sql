@@ -56,10 +56,10 @@ id_loaiDichVu int not null,
 trangThai varchar(45) not null,
 
 
+
 foreign key (id_loaiDichVu) references  loaiDichVu(id_loaiDichVu) on update cascade on delete cascade,
 foreign key(id_kieuThue) references kieuThue(id_kieuThue) on update cascade on delete cascade
 );
-
 
 ----------------------------------- 2
 create table nhanVien(
@@ -120,5 +120,6 @@ soLuong int,
 foreign key (id_dichVuDiKem) references dichVuDiKem(id_dichVuDiKem)on update cascade on delete cascade,
 foreign key(id_hopDong) references hopDong(id_hopDong)on update cascade on delete cascade
 );
+
 
 
