@@ -36,11 +36,11 @@ values
 
 insert into dichvudikem(ten_dichVuDiKem,gia,donvi,trangThaiKhaDung)
 values
-("massage",0,1,"available"),
-("karaoke",0,1,"available"),
-("thức ăn,",0,1,"not available"),
-("nước uống",0,1,"available"),
-("thuê xe di chuyển tham quan resort",0,1,"not available");
+("massage",20,1,"available"),
+("karaoke",30,2,"available"),
+("thức ăn,",40,3,"not available"),
+("nước uống",50,4,"available"),
+("thuê xe di chuyển tham quan resort",60,5,"not available");
 
 
 
@@ -64,18 +64,11 @@ values
 ('theo tháng', 500),
 ('theo giờ', 10);
 
-
--- create table loaiDichVu (
--- id_loaiDichVu int primary key auto_increment,
--- ten_loaiDichVu varchar(45) not null
--- );
-
-
-insert into loaiDichVu (ten_loaiDichVu)
-values
-('Villa'),
-('House'),
-('Room');
+-- insert into loaiDichVu (ten_loaiDichVu)
+-- values
+-- ('Villa'),
+-- ('House'),
+-- ('Room');
 
 insert into dichVu (ten_dichVu,dienTich,soTang,soNguoiToiDa,chiPhiThue,id_kieuThue,id_loaiDichVu,trangThai)
 values
@@ -90,26 +83,37 @@ values
 
 insert into nhanVien
 values
-(1,'NSUT Thanh Công',1,1,1,'1991-12-12',201637373,2000,'0905456789','cong@gmail.com', '123 Hải Phòng'),
-(2,'Danh Hài Đức Sang',2,1,1,'1992-12-12',201637373,1500,'0905456789','cong@gmail.com', '123 Hải Phòng'),
-(3,'Tuấn Tài Tử',3,2,1,'1997-12-12',201637373,1200,'0905456789','cong@gmail.com', '123 Hải Phòng'),
-(4,'Tùng Tiếu',3,1,1,'1987-12-12',201637373,1200,'0905456789','cong@gmail.com', '123 Hải Phòng'),
-(5,'Thăng Tha Thứ',4,1,1,'1992-12-12',201637373,1200,'0905456789','cong@gmail.com', '123 Hải Phòng');
-
--- id_khachHang int primary key,
--- id_loaiKhach int not null,-- khoa phu
--- ten_khachHang varchar(45) not null,
--- ngaySinh date not null,
--- soCMND int(20) not null,
--- SDT varchar(45) not null,
--- email varchar(45) ,
--- diaChi varchar(45) not null,
+(1,'NSUT Thanh Công',1,1,3,'1991-12-12',201637373,2000,'0905456789','cong@gmail.com', '123 Hải Phòng'),
+(2,'Danh Hài Đức Sang',2,2,3,'1992-12-12',201637373,1500,'0905456789','cong@gmail.com', '123 Hải Phòng'),
+(3,'Tuấn Tài Tu',3,3,1,'1997-12-12',201637373,1200,'0905456789','cong@gmail.com', 'Đà Nẵng'),
+(4,'Tùng Tieu',4,2,2,'2015-12-12',201637373,1200,'0905456789','cong@gmail.com', 'Đà Nẵng'),
+(5,'Thăng Tha Thu',5,3,2,'1992-12-12',201637373,1200,'0905456789','cong@gmail.com', 'Quảng Trị');
 
 insert into khachhang
 values
 (1,1,'Nguyen A','1987-6-12',201523234,'0905867123','a@gmail.com','44 Lê Lai'),
-(2,2,'Nguyen B','1987-6-12',201523234,'0905867123','a@gmail.com','44 Lê Lai'),
-(3,3,'Nguyen C','1987-6-12',201523234,'0905867123','a@gmail.com','44 Lê Lai'),
-(4,4,'Nguyen D','1987-6-12',201523234,'0905867123','a@gmail.com','44 Lê Lai'),
-(5,5,'Nguyen E','1987-6-12',201523234,'0905867123','a@gmail.com','44 Lê Lai');
+(2,2,'Nguyen B','2015-6-12',201523234,'0905867123','b@gmail.com','Đà Nẵng'),
+(3,3,'Nguyen A','1987-6-12',201523234,'0905867123','c@gmail.com','Quảng Trị'),
+(4,4,'Nguyen D','1987-6-12',201523234,'0905867123','d@gmail.com','Đà Nẵng'),
+(5,5,'Nguyen E','1987-6-12',201523234,'0905867123','e@gmail.com','44 Lê Lai');
 
+
+insert into HopDong(id_nhanVien,id_khachHang,id_dichVu,ngayLamHopDong,ngayKetThuc,tienDatCoc)
+values
+(1,1,1,"2015-12-12","2019-03-12",100),
+(2,2,2,"2018-12-12","2019-02-12",100),
+(3,3,3,"2018-01-12","2019-08-12",100),
+(4,4,4,"2018-01-12","2019-02-12",100),
+(5,5,5,"2019-01-12","2019-08-12",100),
+(5,3,3,"2019-01-12","2019-08-12",100);
+
+
+
+
+insert into hopDongChiTiec(id_hopDong,id_dichVuDiKem,soLuong)
+values
+(1,1,1),
+(2,2,5),
+(3,3,7),
+(4,4,10),
+(5,5,15);

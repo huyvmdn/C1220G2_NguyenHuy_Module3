@@ -104,7 +104,6 @@ id_dichVu int not null,
 ngayLamHopDong date not null,
 ngayKetThuc date,
 tienDatCoc int default 0,
-tongTien int default 0,
 
 foreign key(id_nhanVien) references nhanVien(id_nhanVien)on update cascade on delete cascade,
 foreign key(id_khachHang) references khachHang(id_khachHang)on update cascade on delete cascade,
