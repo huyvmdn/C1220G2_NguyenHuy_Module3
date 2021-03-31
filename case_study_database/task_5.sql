@@ -1,6 +1,6 @@
 use quan_ly_furama;
 
-select kh.id_khachHang,kh.ten_khachHang, lk.ten_loaiKhach,hd.id_hopDong,dv.ten_dichVu,hd.ngayLamHopDong,hd.ngayKetThuc, (dv.chiPhiThue + (dvdk.gia * dvdk.donvi)) as TongTien
+select kh.id_khachHang,kh.ten_khachHang, lk.ten_loaiKhach,hd.id_hopDong,dv.ten_dichVu,hd.ngayLamHopDong,hd.ngayKetThuc, (dv.chiPhiThue + (dvdk.gia * hdct.soLuong)) as TongTien
 from khachHang kh
  inner join loaikhach lk on kh.id_loaiKhach = lk.id_loaiKhach
  inner join hopdong hd on kh.id_khachHang = hd.id_khachHang
