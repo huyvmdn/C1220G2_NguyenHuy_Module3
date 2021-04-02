@@ -5,6 +5,10 @@ use quan_ly_furama;
 --  TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 
 --  nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
 
+insert into hopdongchitiec
+values
+(64,5,2,2)
+
 select hd.id_hopDong, nv.ten_nhanVien, kh.ten_khachHang, kh.SDT, dv.ten_dichVu, count(hdct.id_dichVuDiKem) as SoLuongDichVuDikem, hd.tienDatCoc
 from hopdong hd
 left join nhanvien nv on nv.id_nhanVien=hd.id_nhanVien
@@ -16,7 +20,10 @@ where  (hd.ngayLamHopDong < '2020-01-01' and hd.ngayLamHopDong> '2019-09-30') an
 select ngayLamHopDong
 from hopdong
 where ngayLamHopDong < '2020-07-01' and ngayLamHopDong> '2019-12-31')
-group by hdct.id_dichVuDiKem;
+group by hd.id_hopDong;
+
+
+
 
 
 
