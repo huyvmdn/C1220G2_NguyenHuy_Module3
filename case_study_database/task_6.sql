@@ -8,5 +8,13 @@ select dv.id_dichVu,dv.ten_dichVu,dv.dienTich,dv.ChiPhiThue,ldv.ten_loaiDichVu,h
 from dichvu dv
 right join loaidichvu ldv on dv.id_loaiDichVu = ldv.id_loaiDichVu
 inner join hopdong hd on hd.id_dichVu=dv.id_dichVu
-where hd.ngayLamHopDong < '2019-01-01' or hd.ngayLamHopDong> '2019-03-31' 
-
+where hd.ngayLamHopDong < '2019-01-01' or hd.ngayLamHopDong> '2019-03-31' ;
+-- ----------------------------------------------------------------------------------
+select dv.id_dichVu,dv.ten_dichVu,dv.dienTich,dv.ChiPhiThue,ldv.ten_loaiDichVu,hd.ngayLamHopDong
+from dichvu dv
+right join loaidichvu ldv on dv.id_loaiDichVu = ldv.id_loaiDichVu
+inner join hopdong hd on hd.id_dichVu=dv.id_dichVu
+where not exists (
+	select hd.id_hopdong 
+	from hopdong 
+	where (hd.ngayLamHopDong between  '2019-01-01' and '2019-03-31') and hd.id_dichvu=dv.id_dichvu);

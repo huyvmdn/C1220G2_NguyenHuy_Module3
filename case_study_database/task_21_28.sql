@@ -75,10 +75,13 @@ create trigger xoa_hopdong
 after delete
 on hopdong for each row
 begin
-select *
-from hopdong;
+set @x=( select count(*)
+from hopdong);
 end;
 // delimiter ;
+set @x=0;
+delete from  hopdong where id_hopdong=3;
+select @x as 'số lượng hợp đồng còn lại'
 
 
 -- task 26----------------------------------------------------
